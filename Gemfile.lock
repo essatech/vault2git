@@ -1,10 +1,15 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    nokogiri (1.4.4-x86-mingw32)
+    log4r (1.1.10)
+    nokogiri (1.5.1-x86-mingw32)
 
 PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  nokogiri (= 1.4.4)
+  log4r
+  nokogiri (= 1.5.1)
+
+BUNDLED WITH
+   1.15.0
