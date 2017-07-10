@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler'
 
-require 'options'
-require 'converter'
+require_relative 'options'
+require_relative 'converter'
 
 Converter.convert
