@@ -140,7 +140,7 @@ class Converter
 			clear_working_folder
 			vault_command 'getversion', ["-backup no", "-merge overwrite", "-setfiletime checkin", "-performdeletions removeworkingcopy", version[:version]], $options.dest
 			comments = [version[:comment], "Original Vault commit: version #{version[:version]} on #{version[:date]} by #{version[:user]} (txid=#{version[:txid]})"].compact.map{|c|c.gsub('"', '\"')}
-			git_commit comments, "--date=\"#{DateTime.strptime(version[:date], '%m/%d/%Y %I:%M:%S %p').strftime('%Y-%m-%dT%H:%M:%S')}\"", (if authors.has_key? version[:user] then "--author=\"#{authors[version[:user]]}\"" else "" end)
+			git_commit comments, "--date=\"#{DateTime.strptime(version[:date], '%Y-%m-%d %I:%M:%S %p').strftime('%Y-%m-%dT%H:%M:%S')}\"", (if authors.has_key? version[:user] then "--author=\"#{authors[version[:user]]}\"" else "" end)
 			git_command 'gc' if count % 20 == 0 || count == versions.size
 			GC.start if count % 20 == 0 # Force Ruby GC (might speed things up?)
 		end
